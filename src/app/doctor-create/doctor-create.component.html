@@ -1,0 +1,40 @@
+
+<!-- <div class="button-row">
+    <a mat-raised-button color="primary"><mat-icon>list</mat-icon></a>
+</div> -->
+<form class="my-form" [formGroup]="doctorForm" (ngSubmit)="onFormSubmit(doctorForm.value)">
+    <p class="frm-heading u-margin-bottom-big">Add new doctor Information!</p>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" formControlName="firstName">
+        <mat-error>
+            <span *ngIf="!doctorForm.get('firstName')?.valid && doctorForm.get('firstName')?.touched">Please enter First Name</span>
+         </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" formControlName="lastName">
+        <mat-error>
+            <span *ngIf="!doctorForm.get('lastName')?.valid && doctorForm.get('lastName')?.touched">Please enter Last Name</span>
+          </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Address" formControlName="address">
+        <mat-error>
+            <span *ngIf="!doctorForm.get('address')?.valid && doctorForm.get('address')?.touched">Please enter Address</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Specialization" formControlName="specialization">
+        <mat-error>
+            <span *ngIf="!doctorForm.get('specialization')?.valid && doctorForm.get('specialization')?.touched">Please enter Specialization</span>
+          </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Description of specialization" formControlName="specDescription"></textarea>
+        <mat-error>
+            <span *ngIf="!doctorForm.get('specDescription')?.valid && doctorForm.get('specDescription')?.touched">Please enter Description of specialization</span>
+          </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+        <button type="submit" [disabled]="!doctorForm.valid" mat-raised-button color="primary">Save</button>
+    </div>
+</form>
